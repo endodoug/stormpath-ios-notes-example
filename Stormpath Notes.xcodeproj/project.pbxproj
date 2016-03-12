@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		DF46C2C51C938CDB0001898D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF46C2C41C938CDB0001898D /* AppDelegate.swift */; };
-		DF46C2C71C938CDB0001898D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF46C2C61C938CDB0001898D /* ViewController.swift */; };
 		DF46C2CA1C938CDB0001898D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF46C2C81C938CDB0001898D /* Main.storyboard */; };
 		DF46C2CC1C938CDB0001898D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF46C2CB1C938CDB0001898D /* Assets.xcassets */; };
 		DF46C2CF1C938CDB0001898D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF46C2CD1C938CDB0001898D /* LaunchScreen.storyboard */; };
+		DF46C2D71C938DFF0001898D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF46C2D61C938DFF0001898D /* LoginViewController.swift */; };
+		DF46C2D91C938E0E0001898D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF46C2D81C938E0E0001898D /* RegisterViewController.swift */; };
+		DF46C2DB1C938E160001898D /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF46C2DA1C938E160001898D /* NotesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DF46C2C11C938CDB0001898D /* Stormpath Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stormpath Notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF46C2C41C938CDB0001898D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DF46C2C61C938CDB0001898D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DF46C2C91C938CDB0001898D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DF46C2CB1C938CDB0001898D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF46C2CE1C938CDB0001898D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF46C2D01C938CDB0001898D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF46C2D61C938DFF0001898D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DF46C2D81C938E0E0001898D /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		DF46C2DA1C938E160001898D /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +59,10 @@
 			isa = PBXGroup;
 			children = (
 				DF46C2C41C938CDB0001898D /* AppDelegate.swift */,
-				DF46C2C61C938CDB0001898D /* ViewController.swift */,
 				DF46C2C81C938CDB0001898D /* Main.storyboard */,
+				DF46C2DA1C938E160001898D /* NotesViewController.swift */,
+				DF46C2D61C938DFF0001898D /* LoginViewController.swift */,
+				DF46C2D81C938E0E0001898D /* RegisterViewController.swift */,
 				DF46C2CB1C938CDB0001898D /* Assets.xcassets */,
 				DF46C2CD1C938CDB0001898D /* LaunchScreen.storyboard */,
 				DF46C2D01C938CDB0001898D /* Info.plist */,
@@ -136,7 +142,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF46C2C71C938CDB0001898D /* ViewController.swift in Sources */,
+				DF46C2DB1C938E160001898D /* NotesViewController.swift in Sources */,
+				DF46C2D91C938E0E0001898D /* RegisterViewController.swift in Sources */,
+				DF46C2D71C938DFF0001898D /* LoginViewController.swift in Sources */,
 				DF46C2C51C938CDB0001898D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +295,7 @@
 				DF46C2D51C938CDB0001898D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
