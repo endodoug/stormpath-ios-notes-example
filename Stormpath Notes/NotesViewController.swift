@@ -12,6 +12,12 @@ class NotesViewController: UIViewController {
     @IBOutlet weak var helloLabel: UILabel!
     @IBOutlet weak var notesTextView: UITextView!
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        // Place code to load data here
+        
+    }
+    
     @IBAction func logout(sender: AnyObject) {
         // Code when someone presses the logout button
         dismissViewControllerAnimated(false, completion: nil)
