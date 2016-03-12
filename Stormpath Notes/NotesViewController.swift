@@ -39,7 +39,7 @@ extension NotesViewController: UITextViewDelegate {
         notesTextView.resignFirstResponder()
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textViewDidEndEditing(textView: UITextView) {
         // Code when someone exits out of the text field
         
     }
