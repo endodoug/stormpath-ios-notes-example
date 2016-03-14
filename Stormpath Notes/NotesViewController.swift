@@ -12,6 +12,12 @@ class NotesViewController: UIViewController {
     @IBOutlet weak var helloLabel: UILabel!
     @IBOutlet weak var notesTextView: UITextView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillBeHidden:", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         // Place code to load data here
@@ -22,6 +28,18 @@ class NotesViewController: UIViewController {
         // Code when someone presses the logout button
         dismissViewControllerAnimated(false, completion: nil)
         
+    }
+    
+    func keyboardWasShown(notification: NSNotification) {
+        if let keyboardRect = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]?.CGRectValue {
+            notesTextView.contentInset = UIEdgeInsetsMake(0, 0, keyboardRect.size.height, 0)
+            notesTextView.scrollIndicatorInsets = notesTextView.contentInset
+        }
+    }
+    
+    func keyboardWillBeHidden(notification: NSNotification) {
+        notesTextView.contentInset = UIEdgeInsetsZero
+        notesTextView.scrollIndicatorInsets = UIEdgeInsetsZero
     }
 }
 
