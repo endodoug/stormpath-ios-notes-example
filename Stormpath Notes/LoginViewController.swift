@@ -38,3 +38,12 @@ class LoginViewController: UIViewController {
         performSegueWithIdentifier("login", sender: self)
     }
 }
+
+// Helper extension to display alerts easily.
+extension UIViewController {
+    func showAlert(withTitle title: String, message: String?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+}
