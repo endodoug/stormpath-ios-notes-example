@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63E5433533B3E2C6AFF18DEE /* Pods_Stormpath_Notes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9786A412408B3C607F87A2 /* Pods_Stormpath_Notes.framework */; };
 		DF46C2C51C938CDB0001898D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF46C2C41C938CDB0001898D /* AppDelegate.swift */; };
 		DF46C2CA1C938CDB0001898D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF46C2C81C938CDB0001898D /* Main.storyboard */; };
 		DF46C2CC1C938CDB0001898D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF46C2CB1C938CDB0001898D /* Assets.xcassets */; };
@@ -17,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D68D8693BC30393BEFBA572 /* Pods-Stormpath Notes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stormpath Notes.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stormpath Notes/Pods-Stormpath Notes.release.xcconfig"; sourceTree = "<group>"; };
+		65BBC0340494E1A945D46921 /* Pods-Stormpath Notes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stormpath Notes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stormpath Notes/Pods-Stormpath Notes.debug.xcconfig"; sourceTree = "<group>"; };
+		DE9786A412408B3C607F87A2 /* Pods_Stormpath_Notes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stormpath_Notes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF46C2C11C938CDB0001898D /* Stormpath Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stormpath Notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF46C2C41C938CDB0001898D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF46C2C91C938CDB0001898D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -33,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63E5433533B3E2C6AFF18DEE /* Pods_Stormpath_Notes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		60F7931BA0557B898E23B9A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE9786A412408B3C607F87A2 /* Pods_Stormpath_Notes.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA93E792FB403A655776EEB0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				65BBC0340494E1A945D46921 /* Pods-Stormpath Notes.debug.xcconfig */,
+				1D68D8693BC30393BEFBA572 /* Pods-Stormpath Notes.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DF46C2B81C938CDB0001898D = {
 			isa = PBXGroup;
 			children = (
 				DF46C2C31C938CDB0001898D /* Stormpath Notes */,
 				DF46C2C21C938CDB0001898D /* Products */,
+				DA93E792FB403A655776EEB0 /* Pods */,
+				60F7931BA0557B898E23B9A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,9 +101,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DF46C2D31C938CDB0001898D /* Build configuration list for PBXNativeTarget "Stormpath Notes" */;
 			buildPhases = (
+				6AB2585E65065148D0BFAB45 /* Check Pods Manifest.lock */,
 				DF46C2BD1C938CDB0001898D /* Sources */,
 				DF46C2BE1C938CDB0001898D /* Frameworks */,
 				DF46C2BF1C938CDB0001898D /* Resources */,
+				B3815B0AD92D9A5C8D0D5843 /* Embed Pods Frameworks */,
+				F95758C6875494CF65D78F9A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -136,6 +163,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6AB2585E65065148D0BFAB45 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B3815B0AD92D9A5C8D0D5843 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stormpath Notes/Pods-Stormpath Notes-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F95758C6875494CF65D78F9A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stormpath Notes/Pods-Stormpath Notes-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DF46C2BD1C938CDB0001898D /* Sources */ = {
@@ -256,6 +331,7 @@
 		};
 		DF46C2D41C938CDB0001898D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65BBC0340494E1A945D46921 /* Pods-Stormpath Notes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Stormpath Notes/Info.plist";
@@ -267,6 +343,7 @@
 		};
 		DF46C2D51C938CDB0001898D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D68D8693BC30393BEFBA572 /* Pods-Stormpath Notes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Stormpath Notes/Info.plist";

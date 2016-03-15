@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Stormpath
 
 class NotesViewController: UIViewController {
     @IBOutlet weak var helloLabel: UILabel!
     @IBOutlet weak var notesTextView: UITextView!
+    
+    let notesEndpoint = NSURL(string: "https://stormpathnotes.herokuapp.com/notes")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +25,23 @@ class NotesViewController: UIViewController {
         super.viewWillAppear(animated)
         // Place code to load data here
         
+        let request = NSMutableURLRequest(URL: notesEndpoint)
+        request.setValue("Bearer \(Stormpath.sharedSession.accessToken ?? "")", forHTTPHeaderField: "Authorization")
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
+            guard let data = data, json = try? NSJSONSerialization.JSONObjectWithData(data, options: []), notes = json["notes"] as? String else {
+                return
+            }
+            dispatch_async(dispatch_get_main_queue(), {
+                self.notesTextView.text = notes
+            })
+        }
+        task.resume()
+        
+        Stormpath.sharedSession.me { (account, error) -> Void in
+            if let account = account {
+                self.helloLabel.text = "Hello \(account.fullName)!"
+            }
+        }
     }
     
     @IBAction func logout(sender: AnyObject) {
@@ -60,5 +80,17 @@ extension NotesViewController: UITextViewDelegate {
     func textViewDidEndEditing(textView: UITextView) {
         // Code when someone exits out of the text field
         
+        let postBody = ["notes": notesTextView.text]
+        
+        let request = NSMutableURLRequest(URL: notesEndpoint)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = try? NSJSONSerialization.dataWithJSONObject(postBody, options: [])
+        request.setValue("application/json" ?? "", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(Stormpath.sharedSession.accessToken ?? "")", forHTTPHeaderField: "Authorization")
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
+            
+        }
+        task.resume()
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Stormpath
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        Stormpath.sharedSession.configuration.APIURL = NSURL(string: "https://stormpathnotes.herokuapp.com")!
+        
         return true
     }
 
@@ -41,6 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+        return Stormpath.sharedSession.application(app, openURL: url, options: options)
+    }
 
 }
 
