@@ -17,6 +17,8 @@ class NotesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Watch for keyboard open / close
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardDidShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillBeHidden:", name: UIKeyboardWillHideNotification, object: nil)
     }
@@ -46,10 +48,13 @@ class NotesViewController: UIViewController {
     
     @IBAction func logout(sender: AnyObject) {
         // Code when someone presses the logout button
-        dismissViewControllerAnimated(false, completion: nil)
         
+        Stormpath.sharedSession.logout()
+        
+        dismissViewControllerAnimated(false, completion: nil)
     }
     
+    // Push the text view up when the keyboard appears.
     func keyboardWasShown(notification: NSNotification) {
         if let keyboardRect = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]?.CGRectValue {
             notesTextView.contentInset = UIEdgeInsetsMake(0, 0, keyboardRect.size.height, 0)
@@ -57,6 +62,7 @@ class NotesViewController: UIViewController {
         }
     }
     
+    // Push the text view back down when the keyboard reappears.
     func keyboardWillBeHidden(notification: NSNotification) {
         notesTextView.contentInset = UIEdgeInsetsZero
         notesTextView.scrollIndicatorInsets = UIEdgeInsetsZero
