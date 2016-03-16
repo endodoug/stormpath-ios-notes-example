@@ -38,18 +38,11 @@ class RegisterViewController: UIViewController {
                 return
             }
             
-            // If they need to verify their email, display alert
-            if account.status == .Unverified {
-                self.showAlert(withTitle: "Registration Complete!", message: "Please check your email to verify your account")
-            }
-                // Otherwise, log them in & close registration window
-            else {
-                Stormpath.sharedSession.login(newUser.email, password: newUser.password, completionHandler: { (success, error) -> Void in
-                    if success {
-                        self.exit()
-                    }
-                })
-            }
+            Stormpath.sharedSession.login(newUser.email, password: newUser.password, completionHandler: { (success, error) -> Void in
+                if success {
+                    self.exit()
+                }
+            })
         }
     }
 
