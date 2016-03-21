@@ -94,9 +94,7 @@ extension NotesViewController: UITextViewDelegate {
         request.setValue("application/json" ?? "", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(Stormpath.sharedSession.accessToken ?? "")", forHTTPHeaderField: "Authorization")
         
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
-            
-        }
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request)
         task.resume()
     }
 }

@@ -13,17 +13,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        // If we're logged in, let's 
-        Stormpath.sharedSession.me { (account, error) -> Void in
-            if account != nil {
-                self.performSegueWithIdentifier("login", sender: self)
-            }
-        }
-    }
-    
     @IBAction func login(sender: AnyObject) {
         // Code when someone presses the login button
         
