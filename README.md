@@ -1,6 +1,6 @@
 # Stormpath Notes (iOS)
 
-This is the repository for the Stormpath Notes iOS tutorial. Read the tutorial for a description of how to build the app. (Link to be added on 3/22/15)
+This is the repository for the [Stormpath Notes iOS tutorial](https://stormpath.com/blog/build-note-taking-app-swift-ios/).
 
 This repository has two branches:
 
@@ -11,5 +11,5 @@ This repository has two branches:
 
 ## Other Information
 
-* Stormpath Notes (Android Tutorial)
+* Stormpath Notes (Android Tutorial)](https://stormpath.com/blog/build-user-authentication-for-android-app/)
 * [Stormpath Notes Backend (built in Express)](https://github.com/stormpath/stormpath-express-mobile-notes-example)
