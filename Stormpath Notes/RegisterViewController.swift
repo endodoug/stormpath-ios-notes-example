@@ -33,16 +33,11 @@ class RegisterViewController: UIViewController {
         
         // Register the new user
         Stormpath.sharedSession.register(newUser) { (account, error) -> Void in
-            guard let account = account where error == nil else {
-                self.showAlert(withTitle: "Error", message: error?.localizedDescription)
-                return
+            if let error = error {
+                self.showAlert(withTitle: "Error", message: error.localizedDescription)
+            } else {
+                self.exit()
             }
-            
-            Stormpath.sharedSession.login(newUser.email, password: newUser.password, completionHandler: { (success, error) -> Void in
-                if success {
-                    self.exit()
-                }
-            })
         }
     }
 
