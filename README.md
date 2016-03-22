@@ -11,5 +11,5 @@ This repository has two branches:
 
 ## Other Information
 
-* Stormpath Notes (Android Tutorial)](https://stormpath.com/blog/build-user-authentication-for-android-app/)
+* [Stormpath Notes (Android Tutorial)](https://stormpath.com/blog/build-user-authentication-for-android-app/)
 * [Stormpath Notes Backend (built in Express)](https://github.com/stormpath/stormpath-express-mobile-notes-example)
